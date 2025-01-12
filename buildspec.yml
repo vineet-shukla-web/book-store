@@ -19,11 +19,11 @@ phases:
     commands:
       # Create a zip file including everything in the root directory
       - echo "Zipping the whole application..."
-      - zip -r book-store.zip .  # Zips the entire project folder (including node_modules, src, etc.)
+      - zip -r bookstore.zip .  # Zips the entire project folder (including node_modules, src, etc.)
  
       # Upload the zip file to S3
-      - echo "Uploading book-store.zip to S3..."
-      - aws s3 cp book-store.zip s3://bookstore-lambda-code/book-store.zip  # Replace with your S3 bucket name
+      - echo "Uploading bookstore.zip to S3..."
+      - aws s3 cp bookstore.zip s3://bookstores-lambda-code/bookstore.zip  # Replace with your S3 bucket name
  
   post_build:
     commands:
@@ -31,7 +31,7 @@ phases:
       - echo "Updating Lambda functions..."
  
       # Lambda Function 1
-      - aws lambda update-function-code --function-name getBooks --s3-bucket bookstore-lambda-code --s3-key book-store.zip
+      - aws lambda update-function-code --function-name getBooks --s3-bucket bookstores-lambda-code --s3-key bookstore.zip
       - echo "Lambda function 1 deployed successfully!"
  
 artifacts:
