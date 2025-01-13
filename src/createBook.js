@@ -10,13 +10,21 @@ async function getSecret(secretName) {
 exports.handler = async (event) => {
   try {
     const { tableName } = await getSecret('bookstoresecret');
+
+    if(!event.body || event.body.trim() === ""){
+      return {
+        statusCode:400,
+        body:JSON.stringify({
+          message:'Request body can not be empty'
+        })
+      }
+    }
+
     const { bookId, title, author } = JSON.parse(event.body);
- 
     const params = {
       TableName: tableName,
       Item: { bookId, title, author },
     };
- 
     await dynamoDB.put(params).promise();
     return {
       statusCode: 201,

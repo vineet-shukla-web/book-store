@@ -10,7 +10,16 @@ async function getSecret(secretName) {
 exports.handler = async (event) => {
   try {
     const { tableName } = await getSecret('bookstoresecret');
-    const { bookId } = JSON.parse(event.body);
+    const {bookId}=event.pathParameters;
+
+    if(!bookId){
+      return {
+        statusCode:400,
+        body:JSON.stringify({
+          message:'bookId is required'
+        })
+      }
+    }
  
     const params = {
       TableName: tableName,

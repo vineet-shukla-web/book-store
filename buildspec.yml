@@ -13,7 +13,7 @@ phases:
     commands:
       # Run tests (optional, if you have any)
       - echo "Running tests..."
-      # npm test  # If you have unit tests
+      - npm test
  
   build:
     commands:
