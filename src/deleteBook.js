@@ -12,6 +12,7 @@ exports.handler = async (event) => {
     const { tableName } = await getSecret('bookstoresecret');
     const {id}=event.pathParameters;
 
+
     if(!id){
       return {
         statusCode:400,
@@ -21,9 +22,10 @@ exports.handler = async (event) => {
       }
     }
  
+    const bookId=id;
     const params = {
       TableName: tableName,
-      Key: { id },
+      Key: { bookId },
     };
  
     await dynamoDB.delete(params).promise();
