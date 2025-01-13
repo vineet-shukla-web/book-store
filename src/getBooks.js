@@ -9,7 +9,7 @@ async function getSecret(secretName) {
  
 exports.handler = async () => {
   try {
-    const { tableName } = await getSecret('BookstoreSecret');
+    const { tableName } = await getSecret('bookstoresecret');
  
     const params = { TableName: tableName };
     const result = await dynamoDB.scan(params).promise();

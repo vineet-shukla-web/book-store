@@ -9,7 +9,7 @@ async function getSecret(secretName) {
  
 exports.handler = async (event) => {
   try {
-    const { tableName } = await getSecret('BookstoreSecret');
+    const { tableName } = await getSecret('bookstoresecret');
     const { bookId } = JSON.parse(event.body);
  
     const params = {
