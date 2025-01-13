@@ -20,7 +20,7 @@ jest.mock('aws-sdk', () => ({
 describe('Lambda Handler',() => {
   test('should delete book', async () => {
     const event = {
-        pathParameters:{bookId:'1'
+        pathParameters:{id:'1'
         },
     };
     const response = await handler(event);
