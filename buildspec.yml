@@ -22,8 +22,8 @@ phases:
       - zip -r bookstore.zip .  # Zips the entire project folder (including node_modules, src, etc.)
  
       # Upload the zip file to S3
-      - echo "Uploading book-store.zip to S3..."
-      - aws s3 cp book-store.zip s3://bookstores-lambda-code/bookstore.zip  # Replace with your S3 bucket name
+      - echo "Uploading bookstore.zip to S3..."
+      - aws s3 cp bookstore.zip s3://bookstores-lambda-code/bookstore.zip  # Replace with your S3 bucket name
  
   post_build:
     commands:
