@@ -1,2 +1,2 @@
 # book-store
-This CRUD application is for Book Store. We used AWS lambda, API Gateway & DynamoDB
+This CRUD application is for Book Store. We used AWS lambda, API Gateway & DynamoDB for deploy
