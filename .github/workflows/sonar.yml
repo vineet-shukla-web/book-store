@@ -1,1 +1,27 @@
-
+name: SonarQube Analysis
+ 
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+ 
+jobs:
+  sonar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+ 
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          java-version: '11'
+ 
+      - name: Run SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=vineet-shukla-web \
+-Dsonar.host.url=https://sonarcloud.io
