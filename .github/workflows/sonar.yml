@@ -22,6 +22,4 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn sonar:sonar \
-            -Dsonar.projectKey=vineet-shukla-web \
--Dsonar.host.url=https://sonarcloud.io
+          mvn sonar:sonar -Dsonar.projectKey=vineet-shukla-web -Dsonar.host.url=https://sonarcloud.io
