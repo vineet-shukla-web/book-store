@@ -14,8 +14,9 @@ phases:
       # Run tests (optional, if you have any)
       - echo "Running tests..."
       - npm run test
+      - export SONAR-TOKEN=$SONAR_TOKEN
       - mvn clean package
-      - mvn sonar:sonar -Dsonar.projectKey=vineet-shukla-web -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=bd00251a78d0c613cc35764bd038bbe053a7fe0e
+      - mvn sonar:sonar -Dsonar.projectKey=vineet-shukla-web -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=$SONAR_TOKEN
  
   build:
     commands:
