@@ -26,6 +26,14 @@ exports.handler = async (event) => {
       TableName: tableName,
       Key: { bookId:id },
     };
+
+    const getResult= await dynamoDB.get(params).promise();
+    if(getResult.Item){
+      return {
+        statusCode: 404,
+        body: JSON.stringify({ message: 'Item not found' }),
+      };
+    }
  
     await dynamoDB.delete(params).promise();
     return {
