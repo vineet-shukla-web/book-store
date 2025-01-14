@@ -16,9 +16,10 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v3
         with:
-          node-version: '22.x'
-      - name: install dependecies
-        run: npm install
+          node-version: '22'
+         
+      - name: Install Dependencies
+        run: npm install  
  
       - name: Run SonarQube Scan
         env:
@@ -30,4 +31,3 @@ jobs:
             -Dsonar.sources=. \
             -Dsonar.host.url=https://sonarcloud.io \
             -Dsonar.login=$SONAR_TOKEN
- 
